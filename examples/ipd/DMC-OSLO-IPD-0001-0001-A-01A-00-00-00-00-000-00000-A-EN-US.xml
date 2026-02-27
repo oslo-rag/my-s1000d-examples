@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://www.s1000d.org/S1000D_5-0/xml_schema_flat/dm/ipd.xsd"
+         id="DMC-OSLO-IPD-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US">
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="OSLO" systemDiffCode="A" systemCode="IPD" subSystemCode="00" subSubSystemCode="01" assyCode="00" disassyCode="00" disassyCodeVariant="00" infoCode="941" infoCodeVariant="A" itemLocationCode="00"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="000" inWork="00"/>
+      </dmIdent>
+      <dmAddressData>
+        <issueDate year="2026" month="02" day="27"/>
+        <responsibleParty enterpriseName="Oslo RAG" enterpriseLocation="Norway"/>
+      </dmAddressData>
+    </dmAddress>
+    <dmStatus securityClassification="01" issueType="new"/>
+  </identAndStatusSection>
+
+  <content>
+    <ipd>
+      <title>Oslo Radar Unit – Illustrated Parts List</title>
+      <figure id="fig-ipd-1">
+        <title>Oslo Radar Exploded View</title>
+        <graphic infoEntityIdent="OSLO-RADAR-IPD" />
+      </figure>
+      <partsList>
+        <part>
+          <item>1</item>
+          <partNumber>OSLO-RAD-ANT-01</partNumber>
+          <description>Antenna Assembly</description>
+          <quantity>1</quantity>
+        </part>
+        <part>
+          <item>2</item>
+          <partNumber>OSLO-RAD-TRX-01</partNumber>
+          <description>Transceiver Module</description>
+          <quantity>1</quantity>
+        </part>
+      </partsList>
+    </ipd>
+  </content>
+</dmodule>
