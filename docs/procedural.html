@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replace Oslo Radar Antenna</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #222;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #003366, #0055aa);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.4rem;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin: 0;
+        }
+        
+        .meta-bar {
+            background: #f1f3f6;
+            padding: 15px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .meta-label {
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .content {
+            padding: 50px 60px;
+        }
+        
+        h2 {
+            color: #003366;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 12px;
+            margin-top: 50px;
+            font-size: 1.8rem;
+        }
+        
+        .preliminary {
+            background: #fff3cd;
+            border-left: 6px solid #ffc107;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+        
+        .procedure {
+            counter-reset: step-counter;
+        }
+        
+        .step {
+            position: relative;
+            padding-left: 65px;
+            margin-bottom: 35px;
+        }
+        
+        .step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 48px;
+            height: 48px;
+            background: #003366;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 51, 102, 0.3);
+        }
+        
+        .step p {
+            font-size: 1.15rem;
+            margin: 10px 0 0 0;
+            padding-top: 8px;
+        }
+        
+        .concluding {
+            background: #e3f2fd;
+            border-left: 6px solid #2196f3;
+            padding: 25px 30px;
+            margin-top: 50px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+        
+        .footer {
+            background: #f1f3f6;
+            padding: 25px 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        .dm-code {
+            font-family: monospace;
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Replace Oslo Radar Antenna</h1>
+            <p class="subtitle">Procedural Data Module</p>
+        </div>
+        
+        <!-- Metadata Bar -->
+        <div class="meta-bar">
+            <div class="meta-item">
+                <span class="meta-label">Data Module:</span>
+                <span class="dm-code">DMC-OSLO-PRC-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Issue:</span>
+                <span>000 (In Work 00)</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Date:</span>
+                <span>27 February 2026</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Responsible:</span>
+                <span>Oslo RAG • Norway</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Security:</span>
+                <span>01 (Unclassified)</span>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            
+            <!-- Preliminary Requirements -->
+            <h2>Preliminary Requirements</h2>
+            <div class="preliminary">
+                <strong>Before starting this procedure:</strong><br><br>
+                • Power to radar unit is OFF.
+            </div>
+            
+            <!-- Procedure -->
+            <h2>Procedure</h2>
+            <div class="procedure">
+                <div class="step">
+                    <p>Remove the four mounting bolts from the antenna base.</p>
+                </div>
+                <div class="step">
+                    <p>Disconnect the coaxial cable connector.</p>
+                </div>
+                <div class="step">
+                    <p>Install the new antenna and torque bolts to <strong>12 Nm</strong>.</p>
+                </div>
+                <div class="step">
+                    <p>Reconnect the coaxial cable.</p>
+                </div>
+            </div>
+            
+            <!-- Concluding Information -->
+            <div class="concluding">
+                <strong>After replacement:</strong><br><br>
+                Perform functional test of the radar system.
+            </div>
+            
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            S1000D Data Module • Oslo RAG • Issue Date: 2026-02-27 • Language: English (US)
+        </div>
+    </div>
+</body>
+</html>
