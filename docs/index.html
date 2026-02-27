@@ -5,66 +5,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S1000D Portfolio • Leni (oslo-rag)</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(at center bottom, rgba(59, 130, 246, 0.15), transparent 70%);
+        }
+        
+        .card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+        }
+        
+        .icon-container {
+            transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .card:hover .icon-container {
+            transform: scale(1.15) rotate(5deg);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: rgb(96 165 250);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 font-sans">
-    <div class="max-w-5xl mx-auto px-6 py-8">
-        <nav class="flex justify-between items-center mb-12 border-b border-zinc-800 pb-6">
-            <div class="flex items-center gap-3 text-2xl font-semibold">
-                <span class="text-blue-400">S1000D</span> Portfolio
+<body class="bg-zinc-950 text-zinc-100">
+    <div class="max-w-6xl mx-auto px-6 py-10">
+        <!-- Navbar -->
+        <nav class="flex justify-between items-center mb-20 border-b border-zinc-800 pb-8">
+            <div class="flex items-center gap-4">
+                <div class="w-9 h-9 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span class="font-black text-2xl text-white tracking-tighter">S</span>
+                </div>
+                <div>
+                    <span class="text-3xl font-semibold tracking-tighter">S1000D</span>
+                    <span class="text-blue-400 font-medium">Portfolio</span>
+                </div>
             </div>
-            <div class="flex gap-8 text-sm uppercase tracking-widest">
-                <a href="index.html" class="text-blue-400">Home</a>
-                <a href="descriptive.html" class="hover:text-blue-400 transition">Descriptive</a>
-                <a href="procedural.html" class="hover:text-blue-400 transition">Procedural</a>
-                <a href="ipd.html" class="hover:text-blue-400 transition">IPD</a>
+            
+            <div class="flex items-center gap-10 text-sm font-medium tracking-wider uppercase">
+                <a href="index.html" class="text-blue-400 nav-link">Home</a>
+                <a href="descriptive.html" class="hover:text-blue-400 transition-colors nav-link">Descriptive</a>
+                <a href="procedural.html" class="hover:text-blue-400 transition-colors nav-link">Procedural</a>
+                <a href="ipd.html" class="hover:text-blue-400 transition-colors nav-link">IPD</a>
                 <a href="https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples" 
-                   target="_blank" 
-                   class="hover:text-blue-400 transition flex items-center gap-1">
-                    <i class="fas fa-code"></i> XML Source
+                   target="_blank"
+                   class="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                    <i class="fab fa-github text-lg"></i>
+                    <span>XML Source</span>
                 </a>
             </div>
         </nav>
-        
-        <div id="content" class="max-w-none text-lg leading-relaxed"></div>
 
-        <footer class="mt-20 pt-8 border-t border-zinc-800 text-zinc-500 text-sm text-center">
-            Leni (oslo-rag) • Technical Writer Portfolio • February 2026
+        <!-- Hero -->
+        <div class="hero-bg rounded-3xl py-20 px-12 text-center mb-24 border border-zinc-800/50">
+            <div class="inline-flex items-center gap-3 bg-zinc-900 border border-zinc-700 rounded-full px-6 py-2 text-sm mb-8">
+                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                ISSUE 5.0 • KONGSBERG READY
+            </div>
+            
+            <h1 class="text-7xl font-bold tracking-tighter mb-4">
+                S1000D Portfolio
+            </h1>
+            <p class="text-3xl text-zinc-400 mb-6">Leni (oslo-rag)</p>
+            
+            <p class="max-w-xl mx-auto text-xl text-zinc-400 leading-relaxed">
+                Hand-crafted, production-grade S1000D Data Modules<br>
+                Perfect naming • Full DMRL • CSDB compliant
+            </p>
+            
+            <div class="flex justify-center gap-5 mt-12">
+                <a href="https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples" 
+                   target="_blank"
+                   class="flex items-center gap-3 bg-white hover:bg-zinc-100 text-zinc-950 font-semibold px-10 py-5 rounded-2xl transition-all active:scale-95">
+                    <i class="fas fa-code text-xl"></i>
+                    VIEW RAW XML
+                </a>
+                <a href="#examples" 
+                   class="flex items-center gap-3 border border-zinc-700 hover:border-blue-500 font-semibold px-10 py-5 rounded-2xl transition-all">
+                    EXPLORE EXAMPLES
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Three Main Clickable Cards -->
+        <div id="examples" class="mb-16">
+            <div class="text-center mb-16">
+                <span class="uppercase tracking-[4px] text-blue-400 text-sm font-medium">Live Rendered Examples</span>
+                <h2 class="text-5xl font-semibold tracking-tighter mt-3">Pick a module. See it live.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Descriptive Card -->
+                <a href="descriptive.html" class="card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden flex flex-col">
+                    <div class="h-80 bg-gradient-to-br from-blue-900 via-zinc-900 to-zinc-950 flex items-center justify-center relative">
+                        <div class="icon-container text-8xl text-blue-400/80 group-hover:text-blue-400">📋</div>
+                        <div class="absolute top-6 right-6 bg-zinc-900/80 backdrop-blur-md px-4 py-1 rounded-2xl text-xs font-mono text-blue-400 border border-blue-500/30">
+                            DESCRIPTIVE
+                        </div>
+                    </div>
+                    <div class="p-9 flex-1 flex flex-col">
+                        <h3 class="text-3xl font-semibold mb-3">Oslo Radar Unit</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed flex-1">
+                            Complete general description with technical figures, performance data, and system overview.
+                        </p>
+                        <div class="mt-8 flex items-center justify-between text-sm">
+                            <span class="flex items-center gap-2 text-emerald-400">
+                                <i class="fas fa-check-circle"></i>
+                                Fully illustrated
+                            </span>
+                            <span class="flex items-center gap-2 text-blue-400 font-medium group-hover:gap-3 transition-all">
+                                Open Demo
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Procedural Card -->
+                <a href="procedural.html" class="card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden flex flex-col">
+                    <div class="h-80 bg-gradient-to-br from-emerald-900 via-zinc-900 to-zinc-950 flex items-center justify-center relative">
+                        <div class="icon-container text-8xl text-emerald-400/80 group-hover:text-emerald-400">🔧</div>
+                        <div class="absolute top-6 right-6 bg-zinc-900/80 backdrop-blur-md px-4 py-1 rounded-2xl text-xs font-mono text-emerald-400 border border-emerald-500/30">
+                            PROCEDURAL
+                        </div>
+                    </div>
+                    <div class="p-9 flex-1 flex flex-col">
+                        <h3 class="text-3xl font-semibold mb-3">Antenna Replacement</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed flex-1">
+                            Step-by-step procedure with safety warnings, tools list, torque values and illustrations.
+                        </p>
+                        <div class="mt-8 flex items-center justify-between text-sm">
+                            <span class="flex items-center gap-2 text-emerald-400">
+                                <i class="fas fa-check-circle"></i>
+                                Safety compliant
+                            </span>
+                            <span class="flex items-center gap-2 text-emerald-400 font-medium group-hover:gap-3 transition-all">
+                                Open Demo
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- IPD Card -->
+                <a href="ipd.html" class="card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden flex flex-col">
+                    <div class="h-80 bg-gradient-to-br from-violet-900 via-zinc-900 to-zinc-950 flex items-center justify-center relative">
+                        <div class="icon-container text-8xl text-violet-400/80 group-hover:text-violet-400">🧩</div>
+                        <div class="absolute top-6 right-6 bg-zinc-900/80 backdrop-blur-md px-4 py-1 rounded-2xl text-xs font-mono text-violet-400 border border-violet-500/30">
+                            IPD
+                        </div>
+                    </div>
+                    <div class="p-9 flex-1 flex flex-col">
+                        <h3 class="text-3xl font-semibold mb-3">Illustrated Parts Data</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed flex-1">
+                            Exploded-view diagram with interactive parts list, reference numbers and spares info.
+                        </p>
+                        <div class="mt-8 flex items-center justify-between text-sm">
+                            <span class="flex items-center gap-2 text-emerald-400">
+                                <i class="fas fa-check-circle"></i>
+                                Interactive
+                            </span>
+                            <span class="flex items-center gap-2 text-violet-400 font-medium group-hover:gap-3 transition-all">
+                                Open Demo
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="pt-12 border-t border-zinc-800 text-center text-zinc-500 text-sm flex flex-col items-center gap-2">
+            <p>Technical Writer Portfolio • Built for KONGSBERG IETP environments</p>
+            <p class="text-xs">Leni (oslo-rag) • February 2026</p>
         </footer>
     </div>
 
     <script>
-        const markdownText = `# S1000D Portfolio • Leni (oslo-rag)
-
-Hand-crafted Data Modules • Issue 5.0
-
-[View Raw XML on GitHub](https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples)
-
-## Technical Writer Application – KONGSBERG
-
-Clean, fully hand-written S1000D examples with perfect naming, DMRL, CSDB and issue control.  
-Live rendered HTML versions included.
-
-## Live Examples
-
-### Descriptive
-Oslo Radar Unit – General Description with figures  
-[👁 View Rendered HTML](descriptive.html)
-
-### Procedural
-Antenna replacement with safety warnings & steps  
-[👁 View Rendered HTML](procedural.html)
-
-### Illustrated Parts Data (IPD)
-Exploded view + parts list  
-[👁 View Rendered HTML](ipd.html)
-
----
-
-Live on GitHub Pages • Built for KONGSBERG IETP environments`;
-
-        document.getElementById('content').innerHTML = marked.parse(markdownText);
+        // Tailwind script already loaded via CDN
+        console.log('%cS1000D Portfolio ready ✨', 'color:#60a5fa; font-family:monospace');
     </script>
 </body>
 </html>
