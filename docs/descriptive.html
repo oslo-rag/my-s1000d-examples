@@ -3,65 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descriptive – Oslo Radar Unit</title>
+    <title>Descriptive – Oslo Radar Unit | S1000D Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        body { font-family: system-ui, sans-serif; }
-        .s1000d-content p { line-height: 1.75; }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="bg-zinc-950 text-white min-h-screen">
-    <div class="max-w-4xl mx-auto px-6 py-12">
-        <!-- Back button -->
-        <a href="index.html" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-8">
-            <i class="fas fa-arrow-left"></i> Back to Portfolio
-        </a>
-
-        <!-- DM Header -->
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-10">
-            <div class="flex justify-between items-start">
-                <div>
-                    <h1 class="text-4xl font-bold text-white">Oslo Radar Unit – General Description</h1>
-                    <p class="text-zinc-400 mt-1">DMC-OSLO-DES-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US • Issue 000</p>
-                </div>
-                <div class="text-right text-sm text-zinc-500">
-                    Issue Date: 2026-02-27<br>
-                    Oslo RAG • Norway
-                </div>
-            </div>
-        </div>
-
-        <div class="s1000d-content prose prose-invert max-w-none">
-            <p>The Oslo Radar Unit is a compact, high-resolution radar system designed for small vessel navigation and collision avoidance.</p>
-            <p>It consists of an antenna assembly, transceiver, and display unit.</p>
-        </div>
-
-        <!-- Figure -->
-        <div class="mt-12">
-            <figure class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
-                <div class="bg-gradient-to-br from-zinc-800 to-black h-96 flex items-center justify-center relative">
-                    <!-- Placeholder Image – du kannst später dein eigenes Bild hochladen und den src ändern -->
-                    <img src="https://picsum.photos/id/1015/800/500" 
-                         alt="Oslo Radar Unit overview" 
-                         class="max-h-full object-cover opacity-90">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 text-white">
-                        <i class="fas fa-radar text-6xl mb-2"></i>
-                    </div>
-                </div>
-                <figcaption class="p-6 text-zinc-400 border-t border-zinc-800">
-                    <strong>Figure 1:</strong> Oslo Radar Unit overview
-                </figcaption>
-            </figure>
-        </div>
-
-        <div class="mt-16 text-center">
-            <a href="index.html" 
-               class="inline-block bg-white text-black px-8 py-4 rounded-2xl font-medium hover:bg-zinc-200 transition">
-                ← Back to all Examples
+<body class="bg-zinc-950 text-zinc-100 font-sans">
+    <div class="max-w-5xl mx-auto px-6 py-8">
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center mb-12 border-b border-zinc-800 pb-6">
+            <a href="index.html" class="flex items-center gap-3 text-2xl font-semibold">
+                <span class="text-blue-400">S1000D</span> Portfolio
             </a>
-        </div>
+            <div class="flex gap-8 text-sm uppercase tracking-widest">
+                <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+                <a href="descriptive.html" class="text-blue-400">Descriptive</a>
+                <a href="procedural.html" class="hover:text-blue-400 transition">Procedural</a>
+                <a href="ipd.html" class="hover:text-blue-400 transition">IPD</a>
+                <a href="https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples" target="_blank" class="hover:text-blue-400 transition flex items-center gap-1">
+                    <i class="fas fa-code"></i> XML Source
+                </a>
+            </div>
+        </nav>
+
+        <!-- Rendered Content -->
+        <div id="content" class="prose prose-invert prose-headings:text-white prose-a:text-blue-400 max-w-none text-lg leading-relaxed"></div>
+
+        <!-- Footer -->
+        <footer class="mt-20 pt-8 border-t border-zinc-800 text-zinc-500 text-sm text-center">
+            Leni (oslo-rag) • Technical Writer Portfolio • February 2026
+        </footer>
     </div>
+
+    <script>
+        const markdownText = `# Descriptive – Oslo Radar Unit
+
+[Back to Portfolio](index.html)
+
+# Oslo Radar Unit – General Description
+
+DMC-OSLO-DES-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US • Issue 000
+
+Issue Date: 2026-02-27
+
+Oslo RAG • Norway
+
+The Oslo Radar Unit is a compact, high-resolution radar system designed for small vessel navigation and collision avoidance.
+
+It consists of an antenna assembly, transceiver, and display unit.
+
+***Figure 1:** Oslo Radar Unit overview
+
+[← Back to all Examples](index.html)`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownText);
+    </script>
 </body>
 </html>
