@@ -58,7 +58,4 @@ Exploded view + parts list.
 3. Or drag the file into any S1000D viewer / CSDB system
 
 ---
-
-⭐ **Built entirely by me** – this is my personal portfolio to demonstrate clean S1000D skills for technical documentation roles in aerospace, maritime or defence.
-
-Feel free to open issues or contact me!
+---
