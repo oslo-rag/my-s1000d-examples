@@ -20,14 +20,16 @@
                 <a href="descriptive.html" class="text-blue-400">Descriptive</a>
                 <a href="procedural.html" class="hover:text-blue-400 transition">Procedural</a>
                 <a href="ipd.html" class="hover:text-blue-400 transition">IPD</a>
-                <a href="https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples" target="_blank" class="hover:text-blue-400 transition flex items-center gap-1">
+                <a href="https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples" 
+                   target="_blank" 
+                   class="hover:text-blue-400 transition flex items-center gap-1">
                     <i class="fas fa-code"></i> XML Source
                 </a>
             </div>
         </nav>
 
         <!-- Rendered Content -->
-        <div id="content" class="prose prose-invert prose-headings:text-white prose-a:text-blue-400 max-w-none text-lg leading-relaxed"></div>
+        <div id="content" class="max-w-none text-lg leading-relaxed"></div>
 
         <!-- Footer -->
         <footer class="mt-20 pt-8 border-t border-zinc-800 text-zinc-500 text-sm text-center">
@@ -36,25 +38,22 @@
     </div>
 
     <script>
-        const markdownText = `# Descriptive – Oslo Radar Unit
+        const markdownText = `# Oslo Radar Unit – General Description
 
-[Back to Portfolio](index.html)
+**DMC-OSLO-DES-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US** • Issue 000  
+**Issue Date:** 2026-02-27  
+**Oslo RAG • Norway**
 
-# Oslo Radar Unit – General Description
-
-DMC-OSLO-DES-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US • Issue 000
-
-Issue Date: 2026-02-27
-
-Oslo RAG • Norway
-
-The Oslo Radar Unit is a compact, high-resolution radar system designed for small vessel navigation and collision avoidance.
-
+The Oslo Radar Unit is a compact, high-resolution radar system designed for small vessel navigation and collision avoidance.  
 It consists of an antenna assembly, transceiver, and display unit.
 
-***Figure 1:** Oslo Radar Unit overview
+**Figure 1:** Oslo Radar Unit overview
 
-[← Back to all Examples](index.html)`;
+The system provides excellent performance in both open sea and confined waters, with advanced target tracking and ARPA capabilities.
+
+---
+
+[← Back to Portfolio](index.html)`;
 
         document.getElementById('content').innerHTML = marked.parse(markdownText);
     </script>
