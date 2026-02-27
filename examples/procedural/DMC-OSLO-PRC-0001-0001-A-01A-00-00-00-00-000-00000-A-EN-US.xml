@@ -1,1 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://www.s1000d.org/S1000D_5-0/xml_schema_flat/dm/proced.xsd"
+         id="DMC-OSLO-PRC-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US">
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode modelIdentCode="OSLO" systemDiffCode="A" systemCode="PRC" subSystemCode="00" subSubSystemCode="01" assyCode="00" disassyCode="00" disassyCodeVariant="00" infoCode="071" infoCodeVariant="A" itemLocationCode="00"/>
+        <language languageIsoCode="en" countryIsoCode="US"/>
+        <issueInfo issueNumber="000" inWork="00"/>
+      </dmIdent>
+      <dmAddressData>
+        <issueDate year="2026" month="02" day="27"/>
+        <responsibleParty enterpriseName="Oslo RAG" enterpriseLocation="Norway"/>
+      </dmAddressData>
+    </dmAddress>
+    <dmStatus securityClassification="01" issueType="new"/>
+  </identAndStatusSection>
 
+  <content>
+    <procedural>
+      <title>Replace Oslo Radar Antenna</title>
+      <preliminaryRequirements>
+        <reqCondGroup>
+          <reqCond>Power to radar unit is OFF.</reqCond>
+        </reqCondGroup>
+      </preliminaryRequirements>
+      <procedure>
+        <step>
+          <para>Remove the four mounting bolts from the antenna base.</para>
+        </step>
+        <step>
+          <para>Disconnect the coaxial cable connector.</para>
+        </step>
+        <step>
+          <para>Install the new antenna and torque bolts to 12 Nm.</para>
+        </step>
+        <step>
+          <para>Reconnect the coaxial cable.</para>
+        </step>
+      </procedure>
+      <concludingInformation>
+        <para>Perform functional test after replacement.</para>
+      </concludingInformation>
+    </procedural>
+  </content>
+</dmodule>
