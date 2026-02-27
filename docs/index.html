@@ -3,89 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S1000D Portfolio • Leni (oslo-rag)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>S1000D Portfolio • Oslo Radar &amp; More</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1, h2 { color: #1e3a8a; }
+        .card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            background: #fafafa;
+        }
+        .btn {
+            display: inline-block;
+            background: #1e40af;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 12px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #1e3a8a;
+        }
+        .github-link {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        .github-link:hover { text-decoration: underline; }
+    </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 font-sans">
-    <div class="max-w-6xl mx-auto px-6 py-12">
-        <!-- Top Nav -->
-        <nav class="flex justify-between items-center mb-16 border-b border-zinc-800 pb-8">
-            <div class="flex items-center gap-4">
-                <span class="text-4xl font-bold text-blue-500">S1000D</span>
-                <div>
-                    <div class="text-3xl font-semibold tracking-tight">Portfolio</div>
-                    <div class="text-sm text-zinc-400 -mt-1">Leni (oslo-rag) • Technical Writer</div>
-                </div>
-            </div>
-            <div class="flex gap-10 text-sm uppercase tracking-widest font-medium">
-                <a href="index.html" class="text-blue-400">HOME</a>
-                <a href="descriptive.html" class="hover:text-blue-400 transition">DESCRIPTIVE</a>
-                <a href="procedural.html" class="hover:text-blue-400 transition">PROCEDURAL</a>
-                <a href="ipd.html" class="hover:text-blue-400 transition">IPD</a>
-                <a href="https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples" target="_blank" class="hover:text-blue-400 transition flex items-center gap-2">
-                    <i class="fas fa-code"></i> XML SOURCE
-                </a>
-            </div>
-        </nav>
+<body>
 
-        <!-- Hero -->
-        <div class="text-center max-w-2xl mx-auto mb-20">
-            <h1 class="text-6xl font-bold tracking-tighter mb-6">S1000D Technical Writing Portfolio</h1>
-            <p class="text-2xl text-zinc-400">Hand-crafted Data Modules for KONGSBERG • Issue 5.0</p>
-        </div>
+    <h1>S1000D Portfolio</h1>
+    <p><strong>Hand-crafted Data Modules • Issue 5.0</strong></p>
 
-        <!-- Examples Cards -->
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Descriptive -->
-            <div class="bg-zinc-900 rounded-3xl p-8 border border-zinc-800 hover:border-blue-500 transition-all group">
-                <div class="text-blue-400 mb-6">
-                    <i class="fas fa-book text-5xl"></i>
-                </div>
-                <h2 class="text-2xl font-semibold mb-3">Descriptive</h2>
-                <p class="text-zinc-400 mb-8">Oslo Radar Unit – General description with figures and technical data.</p>
-                <a href="descriptive.html" class="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 font-medium">
-                    View Example <span class="text-2xl leading-none">→</span>
-                </a>
-            </div>
+    <p>
+        <a href="https://github.com/oslo-rag/my-s1000d-examples" target="_blank" class="github-link">
+            📂 View Raw XML on GitHub →
+        </a>
+    </p>
 
-            <!-- Procedural -->
-            <div class="bg-zinc-900 rounded-3xl p-8 border border-zinc-800 hover:border-emerald-500 transition-all group">
-                <div class="text-emerald-400 mb-6">
-                    <i class="fas fa-list-check text-5xl"></i>
-                </div>
-                <h2 class="text-2xl font-semibold mb-3">Procedural</h2>
-                <p class="text-zinc-400 mb-8">Antenna replacement with safety warnings, steps & torque values.</p>
-                <a href="procedural.html" class="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 font-medium">
-                    View Example <span class="text-2xl leading-none">→</span>
-                </a>
-            </div>
+    <h2>Live Examples</h2>
 
-            <!-- IPD -->
-            <div class="bg-zinc-900 rounded-3xl p-8 border border-zinc-800 hover:border-amber-500 transition-all group">
-                <div class="text-amber-400 mb-6">
-                    <i class="fas fa-puzzle-piece text-5xl"></i>
-                </div>
-                <h2 class="text-2xl font-semibold mb-3">Illustrated Parts Data (IPD)</h2>
-                <p class="text-zinc-400 mb-8">Exploded view + complete parts list for Oslo Radar Unit.</p>
-                <a href="ipd.html" class="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 font-medium">
-                    View Example <span class="text-2xl leading-none">→</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- GitHub Link -->
-        <div class="text-center mt-16">
-            <a href="https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples" target="_blank" 
-               class="inline-flex items-center gap-3 text-lg hover:text-blue-400 transition">
-                <i class="fas fa-code"></i>
-                View all Raw XML Data Modules on GitHub
-            </a>
-        </div>
+    <div class="card">
+        <h3>1. Descriptive Data Module</h3>
+        <p>Oslo Radar Unit – General Description with figures</p>
+        <a href="descriptive" class="btn">👁 View Rendered HTML</a>
     </div>
 
-    <footer class="mt-24 py-8 border-t border-zinc-800 text-center text-zinc-500 text-sm">
-        Leni (oslo-rag) • S1000D Portfolio • February 2026
-    </footer>
+    <div class="card">
+        <h3>2. Procedural Data Module</h3>
+        <p>Antenna replacement with safety warnings &amp; steps</p>
+        <a href="procedural" class="btn">👁 View Rendered HTML</a>
+    </div>
+
+    <div class="card">
+        <h3>3. Illustrated Parts Data (IPD)</h3>
+        <p>Exploded view + parts list</p>
+        <a href="ipd" class="btn">👁 View Rendered HTML</a>
+    </div>
+
+    <hr>
+    <p><em>Live on GitHub Pages • Built for KONGSBERG IETP environments</em></p>
+
 </body>
 </html>
