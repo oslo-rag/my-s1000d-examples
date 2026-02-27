@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1000D Portfolio • Leni (oslo-rag)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { font-family: system-ui, sans-serif; }
+        .card { transition: all 0.3s; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15); }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="flex justify-between items-center mb-12">
+            <div>
+                <h1 class="text-5xl font-bold">S1000D Portfolio</h1>
+                <p class="text-xl text-zinc-400">Hand-crafted Data Modules • Issue 5.0</p>
+            </div>
+            <a href="https://github.com/oslo-rag/my-s1000d-examples" target="_blank" class="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-zinc-200">
+                <i class="fab fa-github"></i> View Raw XML on GitHub
+            </a>
+        </div>
+
+        <div class="bg-zinc-900 rounded-3xl p-8 mb-12">
+            <h2 class="text-3xl font-semibold mb-4">Technical Writer Application – KONGSBERG</h2>
+            <p class="text-zinc-400">Clean, fully hand-written S1000D examples with perfect naming, DMRL, CSDB and issue control. Live rendered HTML versions included.</p>
+        </div>
+
+        <h2 class="text-4xl font-semibold mb-8">Live Examples</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- Descriptive -->
+            <div class="bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden card">
+                <div class="h-48 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
+                    <i class="fas fa-book-open text-7xl text-white/80"></i>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Descriptive</h3>
+                    <p class="text-zinc-400 mb-6">Oslo Radar Unit – General Description with figures</p>
+                    <a href="descriptive.html" class="block w-full text-center bg-blue-600 hover:bg-blue-700 py-3 rounded-xl font-medium">👁 View Rendered HTML</a>
+                </div>
+            </div>
+
+            <!-- Procedural -->
+            <div class="bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden card">
+                <div class="h-48 bg-gradient-to-br from-orange-600 to-amber-500 flex items-center justify-center">
+                    <i class="fas fa-wrench text-7xl text-white/80"></i>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Procedural</h3>
+                    <p class="text-zinc-400 mb-6">Antenna replacement with safety warnings & steps</p>
+                    <a href="procedural.html" class="block w-full text-center bg-orange-600 hover:bg-orange-700 py-3 rounded-xl font-medium">👁 View Rendered HTML</a>
+                </div>
+            </div>
+
+            <!-- IPD -->
+            <div class="bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden card">
+                <div class="h-48 bg-gradient-to-br from-purple-600 to-violet-500 flex items-center justify-center">
+                    <i class="fas fa-puzzle-piece text-7xl text-white/80"></i>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Illustrated Parts Data (IPD)</h3>
+                    <p class="text-zinc-400 mb-6">Exploded view + parts list</p>
+                    <a href="ipd.html" class="block w-full text-center bg-purple-600 hover:bg-purple-700 py-3 rounded-xl font-medium">👁 View Rendered HTML</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center text-zinc-500 text-sm mt-16">
+            Live on GitHub Pages • Built for KONGSBERG IETP environments
+        </div>
+    </div>
+</body>
+</html>
