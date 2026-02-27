@@ -19,13 +19,15 @@
                 <a href="descriptive.html" class="hover:text-blue-400 transition">Descriptive</a>
                 <a href="procedural.html" class="hover:text-blue-400 transition">Procedural</a>
                 <a href="ipd.html" class="hover:text-blue-400 transition">IPD</a>
-                <a href="https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples" target="_blank" class="hover:text-blue-400 transition flex items-center gap-1">
+                <a href="https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples" 
+                   target="_blank" 
+                   class="hover:text-blue-400 transition flex items-center gap-1">
                     <i class="fas fa-code"></i> XML Source
                 </a>
             </div>
         </nav>
-
-        <div id="content" class="prose prose-invert prose-headings:text-white prose-a:text-blue-400 max-w-none text-lg leading-relaxed"></div>
+        
+        <div id="content" class="max-w-none text-lg leading-relaxed"></div>
 
         <footer class="mt-20 pt-8 border-t border-zinc-800 text-zinc-500 text-sm text-center">
             Leni (oslo-rag) • Technical Writer Portfolio • February 2026
@@ -35,34 +37,33 @@
     <script>
         const markdownText = `# S1000D Portfolio • Leni (oslo-rag)
 
-# S1000D Portfolio
-
 Hand-crafted Data Modules • Issue 5.0
 
-[View Raw XML on GitHub](https://github.com/oslo-rag/my-s1000d-examples)
+[View Raw XML on GitHub](https://github.com/oslo-rag/my-s1000d-examples/tree/main/examples)
 
 ## Technical Writer Application – KONGSBERG
 
-Clean, fully hand-written S1000D examples with perfect naming, DMRL, CSDB and issue control. Live rendered HTML versions included.
+Clean, fully hand-written S1000D examples with perfect naming, DMRL, CSDB and issue control.  
+Live rendered HTML versions included.
 
 ## Live Examples
 
 ### Descriptive
-Oslo Radar Unit – General Description with figures
-
+Oslo Radar Unit – General Description with figures  
 [👁 View Rendered HTML](descriptive.html)
 
 ### Procedural
-Antenna replacement with safety warnings & steps
-
+Antenna replacement with safety warnings & steps  
 [👁 View Rendered HTML](procedural.html)
 
 ### Illustrated Parts Data (IPD)
-Exploded view + parts list
-
+Exploded view + parts list  
 [👁 View Rendered HTML](ipd.html)
 
+---
+
 Live on GitHub Pages • Built for KONGSBERG IETP environments`;
+
         document.getElementById('content').innerHTML = marked.parse(markdownText);
     </script>
 </body>
