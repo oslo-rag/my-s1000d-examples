@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Replace Oslo Radar Antenna • DMC-OSLO-PRC-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US</title>
+    <title>Replace Oslo Radar Antenna • OSLO RAG</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');
         
@@ -18,286 +19,471 @@
         }
 
         .hero-bg {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('https://picsum.photos/id/1074/2000/1200');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.92)), url('https://picsum.photos/id/1074/2000/1400');
             background-size: cover;
             background-position: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .timeline-line {
+        .radar-sweep {
             position: absolute;
-            left: 31px;
-            top: 60px;
-            bottom: -30px;
-            width: 4px;
-            background: linear-gradient(to bottom, #3b82f6, #1e40af);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(34, 211, 238, 0.15), transparent);
+            animation: sweep 6s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sweep {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(300%); }
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 35px -5px rgb(34 211 238),
+                        0 0 60px -10px rgb(165 243 252);
+        }
+
+        .glass {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.08);
         }
 
         .step-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .step-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        .step-card.complete {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgb(16 185 129);
         }
 
-        .badge {
-            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+        .progress-ring {
+            transition: stroke-dashoffset 0.6s ease;
+        }
+
+        .scanline {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+            box-shadow: 0 0 30px #22d3ee;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: -10px; }
+            100% { top: 110%; }
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200">
-    <div class="max-w-screen-2xl mx-auto">
+<body class="bg-zinc-950 text-zinc-200 overflow-x-hidden">
 
-        <!-- Top Status Bar -->
-        <div class="bg-black border-b border-slate-800 py-2 px-8 flex items-center justify-between text-xs tracking-widest font-medium">
-            <div class="flex items-center gap-8">
-                <div class="flex items-center gap-3">
-                    <i class="fa-solid fa-satellite-dish text-blue-500 text-2xl"></i>
-                    <span class="text-white text-lg font-semibold tracking-[3px]">OSLO RAG</span>
-                </div>
-                <div class="h-5 w-px bg-slate-700"></div>
-                <div class="text-emerald-400">S1000D 5.0 • LIVE TECHNICAL PUBLICATION</div>
-            </div>
-            
-            <div class="flex items-center gap-8 text-slate-400">
-                <div>Issue 000 • In Work 00</div>
-                <div>27 Feb 2026 • en-US</div>
-                <div class="px-4 py-1 bg-red-500/10 text-red-400 border border-red-500/30 rounded-full flex items-center gap-2">
-                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                    CLASS 01
-                </div>
-            </div>
-        </div>
-
-        <!-- Hero -->
-        <div class="hero-bg h-[520px] flex items-center relative">
-            <div class="max-w-6xl mx-auto px-10 w-full">
-                <div class="max-w-2xl">
-                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl px-5 py-2 rounded-3xl text-sm font-medium mb-6 border border-white/20">
-                        <span class="text-emerald-400">●</span>
-                        PROCEDURAL MODULE
-                    </div>
-                    
-                    <h1 class="title-font text-7xl font-semibold leading-none tracking-tighter text-white mb-4">
-                        Replace Oslo<br>Radar Antenna
-                    </h1>
-                    
-                    <div class="text-blue-300 font-mono text-lg mb-8">DMC-OSLO-PRC-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US</div>
-                    
-                    <div class="flex items-center gap-4 text-sm">
-                        <div class="bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl flex items-center gap-3">
-                            <i class="fa-solid fa-clock text-amber-400"></i>
-                            <div>
-                                <div class="text-xs text-slate-400">EST. TIME</div>
-                                <div class="font-semibold">35 minutes</div>
-                            </div>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl flex items-center gap-3">
-                            <i class="fa-solid fa-hard-hat text-orange-400"></i>
-                            <div>
-                                <div class="text-xs text-slate-400">SKILL LEVEL</div>
-                                <div class="font-semibold">Certified Technician</div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Top HUD Bar -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-black/90 border-b border-cyan-500/20 backdrop-blur-xl">
+        <div class="max-w-screen-2xl mx-auto px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <i class="fa-solid fa-satellite-dish text-3xl text-cyan-400"></i>
+                <div>
+                    <span class="title-font text-2xl font-semibold tracking-tighter text-white">OSLO RAG</span>
+                    <span class="text-[10px] uppercase tracking-[3px] text-cyan-400 ml-2">TECHNICAL OPERATIONS</span>
                 </div>
             </div>
 
-            <!-- Floating DM Info -->
-            <div class="absolute bottom-10 right-10 bg-slate-900/90 backdrop-blur-2xl border border-slate-700 rounded-3xl p-6 text-sm max-w-xs">
-                <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-xs">
-                    <div class="text-slate-400">Model Ident Code</div>
-                    <div class="font-medium text-right">OSLO</div>
-                    
-                    <div class="text-slate-400">Responsible Party</div>
-                    <div class="font-medium text-right">Oslo RAG • Norway</div>
-                    
-                    <div class="text-slate-400">Issue Date</div>
-                    <div class="font-medium text-right">27 February 2026</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="max-w-6xl mx-auto px-10 -mt-16 relative z-10 pb-20">
-            <div class="grid grid-cols-12 gap-8">
-
-                <!-- Sidebar -->
-                <div class="col-span-12 lg:col-span-4">
-                    <div class="sticky top-8 space-y-8">
-
-                        <!-- Warning Card -->
-                        <div class="bg-gradient-to-br from-rose-500/10 to-orange-500/10 border border-rose-500/30 rounded-3xl p-7">
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="w-10 h-10 bg-rose-500/20 rounded-2xl flex items-center justify-center text-3xl">⚠️</div>
-                                <div class="font-semibold text-lg text-rose-400">Mandatory Safety</div>
-                            </div>
-                            <ul class="space-y-3 text-sm text-slate-300">
-                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">✔</span> Power to radar unit is OFF and tagged</li>
-                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">✔</span> Use approved fall protection if working at height</li>
-                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">✔</span> Wear ESD wrist strap when handling electronics</li>
-                            </ul>
-                        </div>
-
-                        <!-- Tools & Materials -->
-                        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-7">
-                            <div class="uppercase text-xs tracking-widest text-slate-400 mb-5 flex items-center gap-2">
-                                <i class="fa-solid fa-toolbox"></i>
-                                TOOLS &amp; MATERIALS REQUIRED
-                            </div>
-                            <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div class="flex items-center gap-3">
-                                    <i class="fa-solid fa-wrench text-blue-400"></i>
-                                    <span>Torque wrench (0-20 Nm)</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <i class="fa-solid fa-screwdriver text-blue-400"></i>
-                                    <span>10 mm socket set</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <i class="fa-solid fa-plug text-blue-400"></i>
-                                    <span>Coaxial connector tool</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <i class="fa-solid fa-bolt text-blue-400"></i>
-                                    <span>New M8 bolts (x4)</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Illustration -->
-                        <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden">
-                            <img src="https://picsum.photos/id/201/800/600" alt="Oslo Radar Antenna Diagram" class="w-full">
-                            <div class="p-5 text-xs text-slate-400 border-t border-slate-800">
-                                Antenna mounting detail with coaxial feed
-                            </div>
-                        </div>
-
+            <!-- Live Progress -->
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="relative w-12 h-12">
+                        <svg class="w-12 h-12 -rotate-90" viewBox="0 0 36 36">
+                            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#27272a" stroke-width="3"/>
+                            <path id="progress-circle" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#22d3ee" stroke-width="3" stroke-dasharray="100, 100" stroke-dashoffset="100" stroke-linecap="round"/>
+                        </svg>
+                        <div id="progress-text" class="absolute inset-0 flex items-center justify-center text-xs font-mono font-bold text-cyan-400">0%</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-zinc-400 tracking-widest">PROCEDURE PROGRESS</div>
+                        <div id="progress-label" class="font-semibold text-sm">0 / 4 COMPLETE</div>
                     </div>
                 </div>
 
-                <!-- Main Procedure -->
-                <div class="col-span-12 lg:col-span-8">
-                    <div class="bg-slate-900 border border-slate-700 rounded-3xl p-10">
-
-                        <div class="flex items-center justify-between mb-12">
-                            <div>
-                                <span class="px-4 py-1.5 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-3xl">PROCEDURE</span>
-                            </div>
-                            <div class="text-xs text-slate-400">4 steps • Follow sequentially</div>
-                        </div>
-
-                        <!-- Timeline Steps -->
-                        <div class="relative pl-16 space-y-16">
-
-                            <!-- Line -->
-                            <div class="timeline-line hidden lg:block"></div>
-
-                            <!-- Step 1 -->
-                            <div class="step-card relative bg-slate-800/70 hover:bg-slate-800 border border-slate-700 rounded-3xl p-8 group">
-                                <div class="absolute -left-4 w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-3xl font-bold text-white shadow-2xl shadow-blue-500/50">1</div>
-                                <div class="flex gap-6">
-                                    <div class="flex-1">
-                                        <div class="font-medium text-xl mb-1">Remove the four mounting bolts</div>
-                                        <p class="text-slate-300 leading-relaxed">Carefully loosen and remove the four M8 mounting bolts from the antenna base. Retain bolts for inspection if required.</p>
-                                    </div>
-                                    <div class="w-24 h-24 bg-slate-700 rounded-2xl flex items-center justify-center text-6xl flex-shrink-0 group-hover:scale-110 transition-transform">🔩</div>
-                                </div>
-                            </div>
-
-                            <!-- Step 2 -->
-                            <div class="step-card relative bg-slate-800/70 hover:bg-slate-800 border border-slate-700 rounded-3xl p-8 group">
-                                <div class="absolute -left-4 w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-3xl font-bold text-white shadow-2xl shadow-blue-500/50">2</div>
-                                <div class="flex gap-6">
-                                    <div class="flex-1">
-                                        <div class="font-medium text-xl mb-1">Disconnect coaxial cable</div>
-                                        <p class="text-slate-300 leading-relaxed">Gently unscrew and disconnect the coaxial cable connector from the antenna feed. Use proper tool to avoid damaging threads.</p>
-                                    </div>
-                                    <div class="w-24 h-24 bg-slate-700 rounded-2xl flex items-center justify-center text-6xl flex-shrink-0 group-hover:scale-110 transition-transform">📡</div>
-                                </div>
-                            </div>
-
-                            <!-- Step 3 -->
-                            <div class="step-card relative bg-slate-800/70 hover:bg-slate-800 border border-slate-700 rounded-3xl p-8 group ring-2 ring-emerald-400/30">
-                                <div class="absolute -left-4 w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center text-3xl font-bold text-white shadow-2xl shadow-emerald-500/50">3</div>
-                                <div class="flex gap-6">
-                                    <div class="flex-1">
-                                        <div class="font-medium text-xl mb-1 flex items-center gap-3">
-                                            Install new antenna
-                                            <span class="badge text-white text-xs px-3 py-1 rounded-2xl">Torque 12 Nm</span>
-                                        </div>
-                                        <p class="text-slate-300 leading-relaxed">Position the new antenna on the base. Install new bolts and torque to <span class="font-semibold text-emerald-400">exactly 12 Nm</span> using calibrated torque wrench in cross pattern.</p>
-                                    </div>
-                                    <div class="w-24 h-24 bg-slate-700 rounded-2xl flex items-center justify-center text-6xl flex-shrink-0 group-hover:scale-110 transition-transform">🛠️</div>
-                                </div>
-                            </div>
-
-                            <!-- Step 4 -->
-                            <div class="step-card relative bg-slate-800/70 hover:bg-slate-800 border border-slate-700 rounded-3xl p-8 group">
-                                <div class="absolute -left-4 w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-3xl font-bold text-white shadow-2xl shadow-blue-500/50">4</div>
-                                <div class="flex gap-6">
-                                    <div class="flex-1">
-                                        <div class="font-medium text-xl mb-1">Reconnect coaxial cable</div>
-                                        <p class="text-slate-300 leading-relaxed">Reattach the coaxial cable to the new antenna. Hand-tighten then use tool for final ¼ turn. Ensure secure connection without over-torquing.</p>
-                                    </div>
-                                    <div class="w-24 h-24 bg-slate-700 rounded-2xl flex items-center justify-center text-6xl flex-shrink-0 group-hover:scale-110 transition-transform">🔌</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Concluding -->
-                        <div class="mt-16 bg-emerald-900/30 border border-emerald-500/30 rounded-3xl p-8 flex gap-6 items-start">
-                            <div class="text-6xl">✅</div>
-                            <div>
-                                <div class="uppercase text-emerald-400 text-xs font-bold tracking-widest mb-2">FINAL STEP • VERIFICATION</div>
-                                <p class="text-xl leading-relaxed text-emerald-100">Perform full functional test of the radar system after replacement. Verify signal strength, alignment and operation before returning to service.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="bg-black py-12 border-t border-slate-800">
-            <div class="max-w-6xl mx-auto px-10 text-xs text-slate-500 flex justify-between items-center">
-                <div class="flex items-center gap-8">
-                    <div>© 2026 Oslo RAG — All Rights Reserved</div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <span>S1000D Compliant • Export Controlled</span>
-                    </div>
-                </div>
-                <button onclick="window.print()" class="flex items-center gap-3 hover:text-white transition-colors group">
-                    <span class="text-sm font-medium">Print / Export PDF</span>
-                    <div class="w-8 h-8 rounded-2xl bg-slate-900 group-hover:bg-white group-hover:text-slate-900 flex items-center justify-center transition-all">
-                        <i class="fa-solid fa-print"></i>
-                    </div>
+                <button onclick="resetProcedure()" 
+                        class="px-5 py-2 text-xs font-medium bg-zinc-900 hover:bg-red-900/30 border border-zinc-700 hover:border-red-500/50 rounded-2xl transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-rotate"></i>
+                    RESET
                 </button>
             </div>
+
+            <div class="text-xs font-mono text-zinc-500">DMC-OSLO-PRC-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US • 01 MAR 2026</div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero-bg h-screen flex items-center relative">
+        <div class="scanline"></div>
+        <div class="radar-sweep"></div>
+
+        <div class="max-w-screen-2xl mx-auto px-8 pt-20 relative z-10">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center px-6 py-2 bg-black/60 backdrop-blur-md border border-cyan-500/30 rounded-3xl text-xs tracking-[2px] text-cyan-300 mb-8">
+                    <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse mr-3"></span>
+                    S1000D PROCEDURAL MODULE — CLASS 01
+                </div>
+
+                <h1 class="title-font text-7xl leading-none tracking-tighter font-semibold text-white mb-4">
+                    REPLACE<br>OSLO RADAR<br>ANTENNA
+                </h1>
+
+                <div class="text-cyan-400 font-mono text-xl mb-12">DMC-OSLO-PRC-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US</div>
+
+                <div class="flex gap-8">
+                    <div onclick="startProcedure()" 
+                         class="group cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-semibold px-10 py-6 rounded-3xl flex items-center gap-4 transition-all active:scale-95">
+                        <span class="text-2xl">BEGIN PROCEDURE</span>
+                        <i class="fa-solid fa-arrow-right text-3xl group-active:rotate-45 transition-transform"></i>
+                    </div>
+                    <div class="text-xs leading-tight max-w-[180px] text-zinc-400">
+                        Estimated time: <span class="text-white font-medium">38 min</span><br>
+                        Skill level: <span class="text-white font-medium">Certified Tech</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <!-- Floating status -->
+        <div class="absolute bottom-12 right-12 glass rounded-3xl p-6 neon-glow">
+            <div class="flex items-center gap-6 text-sm">
+                <div>
+                    <div class="text-cyan-300 text-xs">ISSUE DATE</div>
+                    <div class="font-medium">27 FEB 2026</div>
+                </div>
+                <div class="h-9 w-px bg-white/10"></div>
+                <div>
+                    <div class="text-cyan-300 text-xs">LOCATION</div>
+                    <div class="font-medium">Oslo RAG • NORWAY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-screen-2xl mx-auto px-8 py-16 grid grid-cols-12 gap-8">
+
+        <!-- SIDEBAR NAV -->
+        <div class="col-span-12 lg:col-span-3">
+            <div class="sticky top-24 space-y-8">
+
+                <!-- Safety -->
+                <div class="glass rounded-3xl p-7 neon-glow">
+                    <div class="uppercase text-xs tracking-widest text-rose-400 mb-5 flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        CRITICAL SAFETY
+                    </div>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex gap-3 text-zinc-300"><span class="text-emerald-400">●</span> Radar power OFF &amp; locked out</div>
+                        <div class="flex gap-3 text-zinc-300"><span class="text-emerald-400">●</span> ESD protection required</div>
+                        <div class="flex gap-3 text-zinc-300"><span class="text-emerald-400">●</span> Fall arrest if elevated</div>
+                    </div>
+                </div>
+
+                <!-- Quick Nav -->
+                <div class="glass rounded-3xl p-7">
+                    <div class="uppercase text-xs tracking-widest text-zinc-400 mb-6">PROCEDURE STEPS</div>
+                    <div id="sidebar-steps" class="space-y-2 text-sm"></div>
+                </div>
+
+                <!-- Tools -->
+                <div class="glass rounded-3xl p-7">
+                    <div class="uppercase text-xs tracking-widest text-amber-400 mb-5">REQUIRED TOOLS</div>
+                    <ul class="space-y-3 text-sm text-zinc-300">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-wrench text-amber-400"></i> Calibrated torque wrench</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-screwdriver-wrench text-amber-400"></i> 10 mm deep socket</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-plug-circle-bolt text-amber-400"></i> Coaxial torque tool</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-bolt text-amber-400"></i> M8×25 bolts (4x)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="col-span-12 lg:col-span-9">
+            <div class="glass rounded-3xl p-12 neon-glow">
+
+                <div class="flex justify-between items-center mb-12">
+                    <div class="flex items-center gap-4">
+                        <span class="px-5 py-2 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-3xl border border-cyan-500/30">LIVE PROCEDURE</span>
+                    </div>
+                    <div onclick="toggleAllDetails()" class="text-xs cursor-pointer flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-chevron-down"></i>
+                        <span id="expand-label">EXPAND ALL DETAILS</span>
+                    </div>
+                </div>
+
+                <!-- Steps Container -->
+                <div id="steps-container" class="space-y-8"></div>
+
+                <!-- Completion Banner -->
+                <div id="completion-banner" class="hidden mt-12 bg-emerald-900/30 border border-emerald-500/30 rounded-3xl p-8 text-center">
+                    <div class="text-6xl mb-4">🎉</div>
+                    <div class="text-3xl font-semibold text-emerald-300">Procedure Complete</div>
+                    <p class="text-emerald-100 mt-2">All steps verified. Radar system is ready for functional test.</p>
+                    <button onclick="showCompletionModal()" 
+                            class="mt-8 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-3xl transition-all">
+                        FINISH &amp; LOG
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-10 border-t border-zinc-900">
+        <div class="max-w-screen-2xl mx-auto px-8 text-xs text-zinc-500 flex justify-between items-center">
+            <div>© 2026 OSLO RAG • NORWAY • S1000D 5.0 COMPLIANT</div>
+            <div onclick="window.print()" class="flex items-center gap-3 cursor-pointer hover:text-zinc-300 transition-colors">
+                <i class="fa-solid fa-print"></i>
+                <span>PRINT PDF</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- COMPLETION MODAL -->
+    <div id="completion-modal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-xl z-[100] flex items-center justify-center">
+        <div class="glass max-w-md w-full mx-4 rounded-3xl p-12 text-center neon-glow">
+            <div id="modal-confetti" class="absolute inset-0 pointer-events-none"></div>
+            <div class="text-8xl mb-8">✅</div>
+            <div class="text-4xl font-semibold text-white mb-3">Mission Complete</div>
+            <div class="text-zinc-400 mb-10">The Oslo Radar Antenna has been successfully replaced.</div>
+            
+            <button onclick="closeModal()" 
+                    class="w-full py-6 bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold text-lg rounded-3xl hover:scale-105 transition-transform">
+                RETURN TO BASE
+            </button>
+        </div>
     </div>
 
     <script>
-        // Simple scroll reveal for steps
-        const steps = document.querySelectorAll('.step-card');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        // Tailwind script already loaded via CDN
+        function initTailwind() {
+            // Already configured
+        }
+
+        const stepsData = [
+            {
+                id: 1,
+                title: "Remove the four mounting bolts",
+                para: "Loosen and remove the four M8 mounting bolts from the antenna base. Store them safely for inspection.",
+                icon: "🔩",
+                details: "Use 10 mm socket. Apply penetrating oil if bolts are seized. Inspect threads for damage."
+            },
+            {
+                id: 2,
+                title: "Disconnect coaxial cable",
+                para: "Carefully unscrew the coaxial connector using the proper tool. Do not force or bend the cable.",
+                icon: "📡",
+                details: "Torque spec for disconnection: hand tight only. Cover connector with protective cap."
+            },
+            {
+                id: 3,
+                title: "Install new antenna",
+                para: "Position replacement antenna and secure with new M8 bolts. Torque in cross pattern to exactly 12 Nm.",
+                icon: "🛰️",
+                details: "Cross pattern: 4 Nm → 8 Nm → 12 Nm. Use calibrated digital torque wrench."
+            },
+            {
+                id: 4,
+                title: "Reconnect coaxial cable",
+                para: "Reattach coaxial cable to the new antenna feed. Hand tighten then final ¼ turn with tool.",
+                icon: "🔌",
+                details: "Do not exceed 0.8 Nm on connector. Verify secure connection with gentle tug test."
+            }
+        ]
+
+        let completedSteps = new Set()
+
+        function renderSteps() {
+            const container = document.getElementById('steps-container')
+            container.innerHTML = ''
+
+            const sidebar = document.getElementById('sidebar-steps')
+            sidebar.innerHTML = ''
+
+            stepsData.forEach((step, index) => {
+                const isComplete = completedSteps.has(step.id)
+
+                // Main step card
+                const card = document.createElement('div')
+                card.className = `step-card glass rounded-3xl p-8 neon-glow border ${isComplete ? 'complete' : 'border-transparent'}`
+                card.innerHTML = `
+                    <div class="flex gap-8 items-start">
+                        <div onclick="toggleComplete(${step.id})" 
+                             class="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center text-4xl cursor-pointer transition-all hover:scale-110 ${isComplete ? 'bg-emerald-500 text-black' : 'bg-zinc-900 text-cyan-300 border border-zinc-700'}">
+                            ${isComplete ? '✓' : step.icon}
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-4">
+                                <span class="font-mono text-cyan-400 text-2xl font-bold">${step.id}</span>
+                                <h3 class="text-2xl font-semibold">${step.title}</h3>
+                            </div>
+                            <p class="text-zinc-300 mt-4 leading-relaxed text-lg">${step.para}</p>
+                            
+                            <div id="details-${step.id}" class="hidden mt-8 pt-8 border-t border-zinc-700 text-sm text-zinc-400">
+                                <div class="font-medium text-cyan-300 mb-3">ADDITIONAL INFORMATION</div>
+                                <p>${step.details}</p>
+                            </div>
+                            
+                            <div onclick="toggleDetails(${step.id})" 
+                                 class="mt-6 inline-flex items-center gap-2 text-xs text-cyan-400 hover:text-cyan-300 cursor-pointer transition-colors">
+                                <span id="detail-label-${step.id}">SHOW DETAILS</span>
+                                <i class="fa-solid fa-chevron-down transition-transform" id="detail-icon-${step.id}"></i>
+                            </div>
+                        </div>
+                    </div>
+                `
+                container.appendChild(card)
+
+                // Sidebar item
+                const sideItem = document.createElement('div')
+                sideItem.className = `px-5 py-4 rounded-2xl cursor-pointer transition-all flex items-center gap-3 ${isComplete ? 'bg-emerald-900/30 text-emerald-400' : 'hover:bg-zinc-900'}`
+                sideItem.innerHTML = `
+                    <span class="font-mono text-lg ${isComplete ? 'text-emerald-400' : 'text-zinc-500'}">${step.id}</span>
+                    <span class="line-clamp-1">${step.title}</span>
+                `
+                sideItem.onclick = () => {
+                    card.scrollIntoView({ behavior: "smooth", block: "center" })
                 }
-            });
-        }, { threshold: 0.3 });
-        
-        steps.forEach(step => {
-            step.style.opacity = '0';
-            step.style.transform = 'translateY(30px)';
-            step.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            observer.observe(step);
-        });
+                sidebar.appendChild(sideItem)
+            })
+
+            updateProgress()
+        }
+
+        function toggleComplete(id) {
+            if (completedSteps.has(id)) {
+                completedSteps.delete(id)
+            } else {
+                completedSteps.add(id)
+            }
+            localStorage.setItem('osloRadarCompleted', JSON.stringify([...completedSteps]))
+            renderSteps()
+
+            // Check if all complete
+            if (completedSteps.size === stepsData.length) {
+                document.getElementById('completion-banner').classList.remove('hidden')
+                setTimeout(() => {
+                    showCompletionModal()
+                }, 800)
+            }
+        }
+
+        function toggleDetails(id) {
+            const details = document.getElementById(`details-${id}`)
+            const label = document.getElementById(`detail-label-${id}`)
+            const icon = document.getElementById(`detail-icon-${id}`)
+            
+            if (details.classList.contains('hidden')) {
+                details.classList.remove('hidden')
+                label.textContent = 'HIDE DETAILS'
+                icon.style.transform = 'rotate(180deg)'
+            } else {
+                details.classList.add('hidden')
+                label.textContent = 'SHOW DETAILS'
+                icon.style.transform = 'rotate(0deg)'
+            }
+        }
+
+        function toggleAllDetails() {
+            const labels = document.querySelectorAll('[id^="detail-label-"]')
+            const isExpanding = labels[0].textContent === 'SHOW DETAILS'
+            
+            stepsData.forEach(step => {
+                const details = document.getElementById(`details-${step.id}`)
+                const label = document.getElementById(`detail-label-${step.id}`)
+                const icon = document.getElementById(`detail-icon-${step.id}`)
+                
+                if (isExpanding) {
+                    details.classList.remove('hidden')
+                    label.textContent = 'HIDE DETAILS'
+                    icon.style.transform = 'rotate(180deg)'
+                } else {
+                    details.classList.add('hidden')
+                    label.textContent = 'SHOW DETAILS'
+                    icon.style.transform = 'rotate(0deg)'
+                }
+            })
+        }
+
+        function updateProgress() {
+            const percent = Math.round((completedSteps.size / stepsData.length) * 100)
+            const circle = document.getElementById('progress-circle')
+            circle.setAttribute('stroke-dashoffset', 100 - percent)
+            
+            document.getElementById('progress-text').textContent = `${percent}%`
+            document.getElementById('progress-label').textContent = `${completedSteps.size} / ${stepsData.length} COMPLETE`
+        }
+
+        function showCompletionModal() {
+            const modal = document.getElementById('completion-modal')
+            modal.classList.remove('hidden')
+            
+            // Confetti
+            confetti({
+                particleCount: 300,
+                spread: 120,
+                origin: { y: 0.6 }
+            })
+            
+            setTimeout(() => {
+                confetti({
+                    particleCount: 150,
+                    angle: 60,
+                    spread: 70,
+                    origin: { x: 0.1 }
+                })
+            }, 300)
+        }
+
+        function closeModal() {
+            document.getElementById('completion-modal').classList.add('hidden')
+        }
+
+        function startProcedure() {
+            window.scrollTo({
+                top: 900,
+                behavior: "smooth"
+            })
+        }
+
+        function resetProcedure() {
+            if (confirm("Reset entire procedure?")) {
+                completedSteps.clear()
+                localStorage.removeItem('osloRadarCompleted')
+                document.getElementById('completion-banner').classList.add('hidden')
+                renderSteps()
+            }
+        }
+
+        // Init
+        window.onload = function() {
+            // Load saved progress
+            const saved = localStorage.getItem('osloRadarCompleted')
+            if (saved) {
+                completedSteps = new Set(JSON.parse(saved))
+            }
+            
+            renderSteps()
+            
+            // Keyboard shortcut hint
+            console.log('%c👾 Press "R" to reset procedure', 'color:#22d3ee; font-family:monospace')
+            
+            document.addEventListener('keydown', e => {
+                if (e.key.toLowerCase() === 'r') resetProcedure()
+            })
+        }
     </script>
 </body>
 </html>
