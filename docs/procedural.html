@@ -10,14 +10,13 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');
-        
+       
         body {
             font-family: 'Inter', system_ui, sans-serif;
         }
         .title-font {
             font-family: 'Space Grotesk', sans-serif;
         }
-
         .hero-bg {
             background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.92)), url('https://picsum.photos/id/1074/2000/1400');
             background-size: cover;
@@ -25,7 +24,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .radar-sweep {
             position: absolute;
             top: 0;
@@ -36,23 +34,19 @@
             animation: sweep 6s linear infinite;
             pointer-events: none;
         }
-
         @keyframes sweep {
             0% { transform: translateY(-100%); }
             100% { transform: translateY(300%); }
         }
-
         .neon-glow {
             box-shadow: 0 0 35px -5px rgb(34 211 238),
                         0 0 60px -10px rgb(165 243 252);
         }
-
         .glass {
             background: rgba(255,255,255,0.04);
             backdrop-filter: blur(24px);
             border: 1px solid rgba(255,255,255,0.08);
         }
-
         .step-card {
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
@@ -60,11 +54,9 @@
             background: rgba(16, 185, 129, 0.1);
             border-color: rgb(16 185 129);
         }
-
         .progress-ring {
             transition: stroke-dashoffset 0.6s ease;
         }
-
         .scanline {
             position: absolute;
             top: -100%;
@@ -75,7 +67,6 @@
             box-shadow: 0 0 30px #22d3ee;
             animation: scan 4s linear infinite;
         }
-
         @keyframes scan {
             0% { top: -10px; }
             100% { top: 110%; }
@@ -83,16 +74,23 @@
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-200 overflow-x-hidden">
-
     <!-- Top HUD Bar -->
     <div class="fixed top-0 left-0 right-0 z-50 bg-black/90 border-b border-cyan-500/20 backdrop-blur-xl">
         <div class="max-w-screen-2xl mx-auto px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <i class="fa-solid fa-satellite-dish text-3xl text-cyan-400"></i>
-                <div>
-                    <span class="title-font text-2xl font-semibold tracking-tighter text-white">OSLO RAG</span>
-                    <span class="text-[10px] uppercase tracking-[3px] text-cyan-400 ml-2">TECHNICAL OPERATIONS</span>
-                </div>
+            <!-- Logo + Back Link -->
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="group flex items-center gap-4 hover:opacity-80 transition-all active:scale-95">
+                    <i class="fa-solid fa-satellite-dish text-3xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <span class="title-font text-2xl font-semibold tracking-tighter text-white">OSLO RAG</span>
+                        <span class="text-[10px] uppercase tracking-[3px] text-cyan-400 ml-2">TECHNICAL OPERATIONS</span>
+                    </div>
+                </a>
+                
+                <a href="index.html" 
+                   class="hidden md:flex items-center gap-2 px-5 py-2.5 text-xs font-medium tracking-widest border border-zinc-700 hover:border-cyan-400 hover:text-cyan-400 rounded-2xl transition-all">
+                    ← BACK TO PORTFOLIO
+                </a>
             </div>
 
             <!-- Live Progress -->
@@ -110,8 +108,7 @@
                         <div id="progress-label" class="font-semibold text-sm">0 / 4 COMPLETE</div>
                     </div>
                 </div>
-
-                <button onclick="resetProcedure()" 
+                <button onclick="resetProcedure()"
                         class="px-5 py-2 text-xs font-medium bg-zinc-900 hover:bg-red-900/30 border border-zinc-700 hover:border-red-500/50 rounded-2xl transition-all flex items-center gap-2">
                     <i class="fa-solid fa-rotate"></i>
                     RESET
@@ -126,22 +123,18 @@
     <div class="hero-bg h-screen flex items-center relative">
         <div class="scanline"></div>
         <div class="radar-sweep"></div>
-
         <div class="max-w-screen-2xl mx-auto px-8 pt-20 relative z-10">
             <div class="max-w-2xl">
                 <div class="inline-flex items-center px-6 py-2 bg-black/60 backdrop-blur-md border border-cyan-500/30 rounded-3xl text-xs tracking-[2px] text-cyan-300 mb-8">
                     <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse mr-3"></span>
                     S1000D PROCEDURAL MODULE — CLASS 01
                 </div>
-
                 <h1 class="title-font text-7xl leading-none tracking-tighter font-semibold text-white mb-4">
                     REPLACE<br>OSLO RADAR<br>ANTENNA
                 </h1>
-
                 <div class="text-cyan-400 font-mono text-xl mb-12">DMC-OSLO-PRC-0001-0001-A-01A-00-00-00-00-000-00000-A-EN-US</div>
-
                 <div class="flex gap-8">
-                    <div onclick="startProcedure()" 
+                    <div onclick="startProcedure()"
                          class="group cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-black font-semibold px-10 py-6 rounded-3xl flex items-center gap-4 transition-all active:scale-95">
                         <span class="text-2xl">BEGIN PROCEDURE</span>
                         <i class="fa-solid fa-arrow-right text-3xl group-active:rotate-45 transition-transform"></i>
@@ -153,7 +146,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Floating status -->
         <div class="absolute bottom-12 right-12 glass rounded-3xl p-6 neon-glow">
             <div class="flex items-center gap-6 text-sm">
@@ -171,11 +163,9 @@
     </div>
 
     <div class="max-w-screen-2xl mx-auto px-8 py-16 grid grid-cols-12 gap-8">
-
         <!-- SIDEBAR NAV -->
         <div class="col-span-12 lg:col-span-3">
             <div class="sticky top-24 space-y-8">
-
                 <!-- Safety -->
                 <div class="glass rounded-3xl p-7 neon-glow">
                     <div class="uppercase text-xs tracking-widest text-rose-400 mb-5 flex items-center gap-2">
@@ -188,13 +178,11 @@
                         <div class="flex gap-3 text-zinc-300"><span class="text-emerald-400">●</span> Fall arrest if elevated</div>
                     </div>
                 </div>
-
                 <!-- Quick Nav -->
                 <div class="glass rounded-3xl p-7">
                     <div class="uppercase text-xs tracking-widest text-zinc-400 mb-6">PROCEDURE STEPS</div>
                     <div id="sidebar-steps" class="space-y-2 text-sm"></div>
                 </div>
-
                 <!-- Tools -->
                 <div class="glass rounded-3xl p-7">
                     <div class="uppercase text-xs tracking-widest text-amber-400 mb-5">REQUIRED TOOLS</div>
@@ -211,7 +199,6 @@
         <!-- MAIN CONTENT -->
         <div class="col-span-12 lg:col-span-9">
             <div class="glass rounded-3xl p-12 neon-glow">
-
                 <div class="flex justify-between items-center mb-12">
                     <div class="flex items-center gap-4">
                         <span class="px-5 py-2 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-3xl border border-cyan-500/30">LIVE PROCEDURE</span>
@@ -221,21 +208,18 @@
                         <span id="expand-label">EXPAND ALL DETAILS</span>
                     </div>
                 </div>
-
                 <!-- Steps Container -->
                 <div id="steps-container" class="space-y-8"></div>
-
                 <!-- Completion Banner -->
                 <div id="completion-banner" class="hidden mt-12 bg-emerald-900/30 border border-emerald-500/30 rounded-3xl p-8 text-center">
                     <div class="text-6xl mb-4">🎉</div>
                     <div class="text-3xl font-semibold text-emerald-300">Procedure Complete</div>
                     <p class="text-emerald-100 mt-2">All steps verified. Radar system is ready for functional test.</p>
-                    <button onclick="showCompletionModal()" 
+                    <button onclick="showCompletionModal()"
                             class="mt-8 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-3xl transition-all">
                         FINISH &amp; LOG
                     </button>
                 </div>
-
             </div>
         </div>
     </div>
@@ -258,8 +242,8 @@
             <div class="text-8xl mb-8">✅</div>
             <div class="text-4xl font-semibold text-white mb-3">Mission Complete</div>
             <div class="text-zinc-400 mb-10">The Oslo Radar Antenna has been successfully replaced.</div>
-            
-            <button onclick="closeModal()" 
+           
+            <button onclick="window.location.href='index.html'" 
                     class="w-full py-6 bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold text-lg rounded-3xl hover:scale-105 transition-transform">
                 RETURN TO BASE
             </button>
@@ -267,11 +251,6 @@
     </div>
 
     <script>
-        // Tailwind script already loaded via CDN
-        function initTailwind() {
-            // Already configured
-        }
-
         const stepsData = [
             {
                 id: 1,
@@ -308,19 +287,18 @@
         function renderSteps() {
             const container = document.getElementById('steps-container')
             container.innerHTML = ''
-
             const sidebar = document.getElementById('sidebar-steps')
             sidebar.innerHTML = ''
-
+            
             stepsData.forEach((step, index) => {
                 const isComplete = completedSteps.has(step.id)
-
+                
                 // Main step card
                 const card = document.createElement('div')
                 card.className = `step-card glass rounded-3xl p-8 neon-glow border ${isComplete ? 'complete' : 'border-transparent'}`
                 card.innerHTML = `
                     <div class="flex gap-8 items-start">
-                        <div onclick="toggleComplete(${step.id})" 
+                        <div onclick="toggleComplete(${step.id})"
                              class="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center text-4xl cursor-pointer transition-all hover:scale-110 ${isComplete ? 'bg-emerald-500 text-black' : 'bg-zinc-900 text-cyan-300 border border-zinc-700'}">
                             ${isComplete ? '✓' : step.icon}
                         </div>
@@ -330,13 +308,13 @@
                                 <h3 class="text-2xl font-semibold">${step.title}</h3>
                             </div>
                             <p class="text-zinc-300 mt-4 leading-relaxed text-lg">${step.para}</p>
-                            
+                           
                             <div id="details-${step.id}" class="hidden mt-8 pt-8 border-t border-zinc-700 text-sm text-zinc-400">
                                 <div class="font-medium text-cyan-300 mb-3">ADDITIONAL INFORMATION</div>
                                 <p>${step.details}</p>
                             </div>
-                            
-                            <div onclick="toggleDetails(${step.id})" 
+                           
+                            <div onclick="toggleDetails(${step.id})"
                                  class="mt-6 inline-flex items-center gap-2 text-xs text-cyan-400 hover:text-cyan-300 cursor-pointer transition-colors">
                                 <span id="detail-label-${step.id}">SHOW DETAILS</span>
                                 <i class="fa-solid fa-chevron-down transition-transform" id="detail-icon-${step.id}"></i>
@@ -353,12 +331,9 @@
                     <span class="font-mono text-lg ${isComplete ? 'text-emerald-400' : 'text-zinc-500'}">${step.id}</span>
                     <span class="line-clamp-1">${step.title}</span>
                 `
-                sideItem.onclick = () => {
-                    card.scrollIntoView({ behavior: "smooth", block: "center" })
-                }
+                sideItem.onclick = () => card.scrollIntoView({ behavior: "smooth", block: "center" })
                 sidebar.appendChild(sideItem)
             })
-
             updateProgress()
         }
 
@@ -370,13 +345,10 @@
             }
             localStorage.setItem('osloRadarCompleted', JSON.stringify([...completedSteps]))
             renderSteps()
-
-            // Check if all complete
+            
             if (completedSteps.size === stepsData.length) {
                 document.getElementById('completion-banner').classList.remove('hidden')
-                setTimeout(() => {
-                    showCompletionModal()
-                }, 800)
+                setTimeout(() => showCompletionModal(), 800)
             }
         }
 
@@ -384,7 +356,7 @@
             const details = document.getElementById(`details-${id}`)
             const label = document.getElementById(`detail-label-${id}`)
             const icon = document.getElementById(`detail-icon-${id}`)
-            
+           
             if (details.classList.contains('hidden')) {
                 details.classList.remove('hidden')
                 label.textContent = 'HIDE DETAILS'
@@ -399,12 +371,12 @@
         function toggleAllDetails() {
             const labels = document.querySelectorAll('[id^="detail-label-"]')
             const isExpanding = labels[0].textContent === 'SHOW DETAILS'
-            
+           
             stepsData.forEach(step => {
                 const details = document.getElementById(`details-${step.id}`)
                 const label = document.getElementById(`detail-label-${step.id}`)
                 const icon = document.getElementById(`detail-icon-${step.id}`)
-                
+               
                 if (isExpanding) {
                     details.classList.remove('hidden')
                     label.textContent = 'HIDE DETAILS'
@@ -421,7 +393,7 @@
             const percent = Math.round((completedSteps.size / stepsData.length) * 100)
             const circle = document.getElementById('progress-circle')
             circle.setAttribute('stroke-dashoffset', 100 - percent)
-            
+           
             document.getElementById('progress-text').textContent = `${percent}%`
             document.getElementById('progress-label').textContent = `${completedSteps.size} / ${stepsData.length} COMPLETE`
         }
@@ -429,14 +401,13 @@
         function showCompletionModal() {
             const modal = document.getElementById('completion-modal')
             modal.classList.remove('hidden')
-            
-            // Confetti
+           
             confetti({
                 particleCount: 300,
                 spread: 120,
                 origin: { y: 0.6 }
             })
-            
+           
             setTimeout(() => {
                 confetti({
                     particleCount: 150,
@@ -447,15 +418,8 @@
             }, 300)
         }
 
-        function closeModal() {
-            document.getElementById('completion-modal').classList.add('hidden')
-        }
-
         function startProcedure() {
-            window.scrollTo({
-                top: 900,
-                behavior: "smooth"
-            })
+            window.scrollTo({ top: 900, behavior: "smooth" })
         }
 
         function resetProcedure() {
@@ -469,17 +433,13 @@
 
         // Init
         window.onload = function() {
-            // Load saved progress
             const saved = localStorage.getItem('osloRadarCompleted')
-            if (saved) {
-                completedSteps = new Set(JSON.parse(saved))
-            }
-            
+            if (saved) completedSteps = new Set(JSON.parse(saved))
+           
             renderSteps()
-            
-            // Keyboard shortcut hint
+           
             console.log('%c👾 Press "R" to reset procedure', 'color:#22d3ee; font-family:monospace')
-            
+           
             document.addEventListener('keydown', e => {
                 if (e.key.toLowerCase() === 'r') resetProcedure()
             })
